@@ -65,7 +65,7 @@ public class Automate
 		/*
 		 * 
 		 * create a file called input.xls and insert the data manually in that file as
-		 * given in problemm statement read the input file in 3 iterations and save
+		 * given in problemm statement read the input file in  iterations and save
 		 * details in variables as below in forloop
 		 */
 		// open the file
@@ -105,11 +105,11 @@ public class Automate
 
 		// SubmitCreate
 
-		driver.findElement(By.id("email_create")).sendKeys("vinaykumarpoosala06@gmail.com");
+		driver.findElement(By.id("email_create")).sendKeys("vinaykumarpoosala009@gmail.com");
 
 		driver.findElement(By.id("SubmitCreate")).click();
 
-		for (int i = 1; i <= sheet.getColumns(); i++) {
+		for (int i = 1; i < sheet.getColumns(); i++) {
 
 			// get the values from excel sheet and store in variables
 
@@ -124,30 +124,7 @@ public class Automate
 			String phone = sheet.getCell(i, 9).getContents();
 			String error = sheet.getCell(i, 10).getContents();
 
-			/*
-			 * 
-			 * customer_firstname customer_lastname passwd
-			 * 
-			 * firstname lastname company
-			 * 
-			 * address1
-			 * 
-			 * city id_state
-			 * 
-			 * postcode
-			 * 
-			 * id_country
-			 * 
-			 * phone_mobile
-			 * 
-			 * alias
-			 */
-
-			/*
-			 * 
-			 * find the elements in and clear the filed after pass the keys i have used
-			 * xpath in particular cases
-			 */
+			
 
 			Thread.sleep(3000);
 
@@ -169,10 +146,6 @@ public class Automate
 			driver.findElement(By.id("company")).clear();
 			driver.findElement(By.id("company")).sendKeys("tcs");
 
-//    		WebElement drp = driver.findElement(By.className("selected-dial-code"));
-//    		drp.click();
-//    		drp.findElement(By.xpath("//*[@id=\"containerNewUserSignup\"]/div[2]/div[4]/div/div/div/ul/li[102]")).click();
-//    		
 //    		
 			driver.findElement(By.id("address1")).clear();
 			driver.findElement(By.id("address1")).sendKeys(phone);
@@ -225,6 +198,7 @@ public class Automate
 			excelSheet.addCell((WritableCell) number);
 
 			// add error message in excel
+			System.out.println(aEr[1]);
 			label = new Label(1, i, aEr[1]);
 			excelSheet.addCell(label);
 
@@ -237,14 +211,7 @@ public class Automate
 		myFirstWbook.close();
 		driver.close();
 
-		/*
-		 * 
-		 * Display the test case as either 'Passed' or 'Failed' based on the comparison
-		 * of actual message against the below given error messages actual messages are
-		 * stored in test list results are stored in result compare the both and print
-		 * result
-		 * 
-		 */
+		
 
 		
 	}
